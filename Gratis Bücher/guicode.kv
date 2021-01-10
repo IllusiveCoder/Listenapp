@@ -1,0 +1,168 @@
+# File = notizappcode.kv
+
+Wmanager:
+    Erste:
+    Zweite:
+            
+<Erste>:
+    name: "first"
+    FloatLayout:
+        orientation: "vertical"
+        Label:
+            markup: True
+            text: "[color=<#000000>]Listenapp fuer\ngratis Buecher[/color]"
+            font_size: root.width/20
+            size_hint: 1, 0.15  # relative Größe des Labels
+            pos_hint: {"x": 0,"top": .95} # Positionierung des Widgets
+            
+            
+            
+
+        Spinner:
+            id: eb
+            text: "Willkommen"
+            values: ("Starten", "Beenden")
+            size_hint: 0.9, 0.1
+            pos_hint: {"x": 0.05, "top": 0.5,"center_x": 0.5}
+            on_text:
+                root.aendern() 
+                root.manager.transition.direction = "left"
+
+<Zweite>:
+    name: "second"
+
+    ScrollView:
+        do_scroll_y: True
+        do_scroll_x: False
+        scroll_distance: 20
+
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'Bilder/background.png'
+
+        GridLayout:
+            size_hint_y: None
+            cols: 1
+            height: self.minimum_height
+
+            Button:
+                id: back
+                text: "Zurueck"
+                size_hint_y: None
+                #pos_hint: {"x": 0, "top": .98}
+                height: dp(80)
+                background_color: 166/255, 166/255, 166/255,0.4
+                on_release:
+                    app.root.current = "first" 
+                    root.manager.transition.direction = "right"
+                    
+            Button:
+                # 1.Button
+                size_hint_y: None
+                text: "Rheinwerk Verlag"
+                on_press: root.oeffnen("https://www.rheinwerk-verlag.de/openbook/")
+                spacing: 5,5
+                background_color: 166/255, 166/255, 166/255,0.4
+                height: dp(80)
+
+            Button:
+                # 2.Button
+                text: "Mayer-Eifel"
+                size_hint_y: None
+                on_press: root.oeffnen("http://ebooks.mayer-eifel.de/")
+                spacing: 5,5 
+                background_color: 166/255, 166/255, 166/255,0.4
+                height: dp(80)
+
+            Button:
+                # 3.Button
+                text: "Hello Coding"
+                size_hint_y: None
+                on_press: root.oeffnen("https://hellocoding.de/blog/coding-language/buecher/kostenlose-it-buecher")
+                spacing: 5,5
+                background_color: 166/255, 166/255, 166/255,0.4
+                height: dp(80)
+
+            Button:
+                # 4.Button
+                text: "IT-Talents"
+                size_hint_y: None
+                on_press: root.oeffnen("https://www.it-talents.de/blog/it-talents/kostenlose-buecher-die-jeder-programmierer-gelesen-haben-sollte")
+                spacing: 5,5
+                background_color: 166/255, 166/255, 166/255,0.4
+                height: dp(80)
+
+            Button:
+                # 5.Button
+                text: "Light PDF"
+                size_hint_y: None
+                on_press: root.oeffnen("https://lightpdf.com/de/kostenlose-pdf-bucher.html#_5")
+                spacing: 5,5
+                background_color: 166/255, 166/255, 166/255,0.4
+                height: dp(80)
+
+            Button:
+                # 6.Button
+                text: "Free Book Centre"
+                size_hint_y: None
+                on_press: root.oeffnen("https://www.freebookcentre.net/")
+                spacing: 5,5
+                background_color: 166/255, 166/255, 166/255,0.4
+                height: dp(80)
+
+            Button:
+                # 7.Button
+                text: "Free Computer Books"
+                size_hint_y: None
+                on_press: root.oeffnen("https://freecomputerbooks.com/")
+                spacing: 5,5
+                background_color: 166/255, 166/255, 166/255,0.4
+                height: dp(80)
+
+            Button:
+                # 8.Button
+                text: "Edukatico"
+                size_hint_y: None
+                on_press: root.oeffnen("https://www.edukatico.org/de/news/10-kostenlose-informatikkurse-fuer-anfaenger")
+                spacing: 5,5
+                background_color: 166/255, 166/255, 166/255,0.4
+                height: dp(80)
+
+            Button:
+                # 9.Button
+                text: "Informatik-Student"
+                size_hint_y: None
+                on_press: root.oeffnen("http://www.informatik-student.de/2006/01/12/kostenlose-computerbuecher-im-internet/")
+                spacing: 5,5
+                background_color: 166/255, 166/255, 166/255,0.4
+                height: dp(80)
+
+            Button:
+                # 10.Button
+                text: "Freiszene"
+                size_hint_y: None
+                on_press: root.oeffnen("https://freiszene.de/")
+                spacing: 5,5
+                background_color: 166/255, 166/255, 166/255,0.4
+                height: dp(80)
+
+            Button:
+                # 11.Button
+                text: "Bookboon"
+                size_hint_y: None
+                on_press: root.oeffnen("https://bookboon.com/de")
+                spacing: 5,5
+                background_color: 166/255, 166/255, 166/255,0.4
+                height: dp(80)
+
+            Button:
+                # 12.Button
+                text: "Projekt-Gutenberg"
+                size_hint_y: None
+                on_press: root.oeffnen("https://www.projekt-gutenberg.org/")
+                spacing: 5,5
+                background_color: 166/255, 166/255, 166/255,0.4
+                height: dp(80)
+    
